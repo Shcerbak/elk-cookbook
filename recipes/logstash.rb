@@ -48,8 +48,8 @@ template '/etc/logstash/conf.d/02-beats-input.conf' do
   mode '0644'
 end
 
-template '/etc/logstash/conf.d/10-syslog-filter.conf' do
-  source 'logstash/10-syslog-filter.conf.erb'
+template '/etc/logstash/conf.d/10-log-filter.conf' do
+  source 'logstash/10-log-filter.conf.erb'
   owner 'root'
   group 'root'
   mode '0644'
