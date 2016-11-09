@@ -1,0 +1,6 @@
+filter {
+    grok {
+      match => { "message" => "%{LOGLEVEL:log_level}%{GREEDYDATA:log_message}" }
+      add_field => [ "level", "%{log_level}" ]
+    }
+}

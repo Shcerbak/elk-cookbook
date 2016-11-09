@@ -1,0 +1,159 @@
+#
+# This file provides a full specification for maintaining your chef cookbook using Noe.
+# It consists of two main sections: template-info and variables. The first one contains
+# meta-information about the skeleton itself while the second one provides information
+# about your chef cookbook.
+#
+# Please update the first part with care, as it immediately affects the way Noe will
+# manage the files of your own project. The second part may be updated more freely.
+#
+# Remember that your project may use a shorter version of this file as it will be
+# automatically completed with default options when invoking 'noe go'. In particular,
+# the first section (under template-info) is only required to contain the name and
+# version of the template to use.
+#
+# Use 'noe prepare --template=chef-cookbook --layout=short' to generate a shorter
+# version of this file.
+#
+# See 'noe help prepare' and 'noe help show-spec' for more information.
+#
+template-info:
+
+  # Don't remove the name and version entries, which are ALWAYS required
+  name: "chef-cookbook"
+  version: 1.3.0
+
+  # The following entries are information about the template itself and can safely
+  # be removed on your own project.
+  summary: |
+    Template for creating a chef cookbook
+  description: |
+    This is a [Noe](https://github.com/blambeau/noe) template for creating a chef cookbook.
+  authors:
+    - {name: Yauhen Artsiukhou, email: jsirex@gmail.com}
+  links:
+    source: https://github.com/jsirex/chef-cookbook.noe/tree/master
+    documentation: https://github.com/jsirex/chef-cookbook.noe/tree/master/README.md
+
+  #
+  # Below starts the template manifest.
+  #
+  # Each entry is related to a template file and may contain the following keys:
+  #   - description: short explanation of the role the file plays in your project
+  #   - safe-override: may the file be safely overrided by 'noe go --safe-override'?
+  #   - wlang-dialect: what dialect must be used for wlang instantiation. When no
+  #     dialect is specified, the dialect under main-wlang-dialect is used.
+  #
+  # You can safely remove the whole manifest or entries for which the default values
+  # are ok for your project. Otherwise, values defined below override the default ones
+  # provided by the template.
+  #
+  # An typical example for keeping an entry here is to set safe-override to false for
+  # specific project files you want to manage manually.
+  #
+  manifest:
+    attributes/default.rb:
+      description: Default attributes for cookbook
+      safe-override: false
+
+    doc/overview.md:
+      description: Description section for README
+      safe-override: false
+
+    recipes/default.rb:
+      description: Default recipe for cookbook
+      safe-override: false
+
+    spec/default_spec.rb:
+      description: ChefSpec tests for default recipe
+      safe-override: false
+
+    spec/spec_helper.rb:
+      description: ChefSpec helper
+      safe-override: true
+
+    test/fixtures/cookbooks/__name__-test/attributes/default.rb:
+      description: Default attributes for test cookbook
+      safe-override: false
+
+    test/fixtures/cookbooks/__name__-test/recipes/default.rb:
+      description: Default recipe for test cookbook
+      safe-override: false
+
+    test/fixtures/cookbooks/__name__-test/metadata.rb:
+      description: Metadata for test cookbook
+      safe-override: false
+
+    test/integration/default/serverspec/default_spec.rb:
+      description: Integration Test for cookbook
+      safe-override: false
+
+    .gitignore:
+      description: Files to be ignored by git or another version control system
+      safe-override: true
+
+    .kitchen.docker.yml:
+      description: Kitchen sample configuration for docker
+      safe-override: true
+
+    .kitchen.yml:
+      description: Kitchen configuration
+      safe-override: false
+
+    .rubocop.yml:
+      description: Rubocop settings
+      safe-override: true
+
+    Berksfile:
+      description: Berkshelf file
+      safe-override: false
+
+    Gemfile:
+      description: Gemfile
+      safe-override: true
+
+    LICENSE:
+      description: Licensing information
+      safe-override: false
+
+    Rakefile:
+      description: Rakefile
+      safe-override: true
+
+    chefignore:
+      description: Files to be ignored by chef
+      safe-override: true
+
+    metadata.rb:
+      description: Main information
+      safe-override: false
+
+# The following entries are template-related variables. Update to match your
+# own configuration.
+variables:
+  name:
+    elk
+
+  maintainer:
+    Shcerbak
+
+  maintainer_email:
+    shcerbak@gmail.com
+
+  license:
+    apache 2
+
+  description:
+    configure elk
+
+  long_description:
+    configure elk
+
+  issues_url:
+    https://github.com/shcerbak/elk-cookbook/issues
+
+  source_url:
+    https://github.com/shcerbak/elk-cookbook
+
+  version:
+    0.1.0

@@ -1,0 +1,21 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: debian-7.9
+    driver_config:
+      require_chef_omnibus: false
+      provision_command:
+        - apt-get update; apt-get -y install build-essential wget net-tools
+        - curl -L https://www.chef.io/chef/install.sh | bash -s -- -v 12.10
+
+  - name: debian-jessie
+    driver_config:
+      require_chef_omnibus: false
+      provision_command:
+        - apt-get update; apt-get -y install build-essential wget net-tools
+        - curl -L https://www.chef.io/chef/install.sh | sudo bash -s -- -v 12.10
